@@ -1,0 +1,68 @@
+// Patraș Anton-Fabian
+// 324CB
+// Homework #1 OOP
+
+The following project is made up of the classes:
+	-Passenger
+		-Single
+		-Family
+		-Group
+	-HeapNode
+	-PrQueue  (which implements the priority queue with a max heap)
+	-PrQueueArray  (which implements the priority queue with an arrayList)
+	-Run
+	-Main
+There was no need of other classes like Ticket because its implementation would have done nothing good to the project.
+
+The project works as follows:
+	1) it reads the number of Singles
+	2) it reads the Singles and appoints them to their intended Group/ Family or they stay as Singles
+	3) it reads the instructions until EOF and parses them on spot
+
+Some words on the Classes, what they are and how some of their methods work:
+
+Passenger:
+	-it represents and entity that can be inserted into the priority queue
+	-it's an abstract class which has 3 subclasses: Single, Family and Group
+	-it only implements methods which are to be used by the subclasses
+	-some of the methods are specific for Family/ Group, and they do nothing for Single or viceversa; they are specified in the JavaDoc
+
+Single:
+	-it represents a single human being
+	-it dos not have any othem members of type Single
+
+Groups:
+	-it is made up of multiple Single instances
+	-it can add/ delete a specific Single
+
+Family:
+	*as above*
+
+HeapNode:
+	-it represents a single left-right-info cell in which the info is a Passenger
+	-it has a method that can reach a certain heapNode following the notation where 0 is the current heapNode
+				0
+			   /\
+			  1  2
+			 /\ /\
+			3 4 5 6
+	-this method is used for an easier implementation of other methods
+
+PrQueue:
+	-insert: inserts the last node then heapify
+	-list: list that heap
+	-embark: copy the last node into the root then heapifies
+	-delete: finds the the passegner to be deleted and then delets it
+	-other methods that are used to implement the 4 methods above as this implementation of the priority queue is unnecessarily harder to implement and is to be avoided
+
+PrQueueArray:
+	*as above*
+
+Run:
+	-this is where they all come together
+	-it has methods for reading the lines and parsing the information opening and closing the input and the output file
+
+Main: 
+	-you use the Run Class to call the reading and parsing instructions
+
+
